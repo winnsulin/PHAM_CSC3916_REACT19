@@ -31,7 +31,7 @@ const MovieDetail = () => {
     }
 
     return (
-  <Card className="bg-dark text-white p-4 rounded">
+  <Card className="bg-light text-dark p-4 rounded">
     <Card.Header>Movie Detail</Card.Header>
 
     <Card.Body>
@@ -60,7 +60,7 @@ const MovieDetail = () => {
       </ListGroupItem>
     </ListGroup>
 
-    <Card.Body className="card-body bg-white text-black">
+    <Card.Body className="card-body bg-white text-dark">
       {selectedMovie.movieReviews?.map((review, i) => (
         <p key={i}>
           <b>{review.username}</b> {review.review} <BsStarFill /> {review.rating}
