@@ -14,23 +14,48 @@ const MovieDetail = () => {
   const loading = useSelector(state => state.movie.loading); // Assuming you have a loading state in your reducer
   const error = useSelector(state => state.movie.error); // Assuming you have an error state in your reducer
 
+const submitReview = async () => {
+  try {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token")
+      },
+      body: JSON.stringify({
+        movieId: selectedMovie._id,
+        rating,
+        review
+      })
+    });
+
+    if (res.ok) {
+      dispatch(fetchMovie(movieId));
+      setReview("");
+      setRating(5);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 
   useEffect(() => {
     dispatch(fetchMovie(movieId));
   }, [dispatch, movieId]);
 
-  const DetailInfo = () => {
-    if (loading) {
-      return <div>Loading....</div>;
-    }
+  // const DetailInfo = () => {
+  //   if (loading) {
+  //     return <div>Loading....</div>;
+  //   }
 
-    if (error) {
-      return <div>Error: {error}</div>;
-    }
+  //   if (error) {
+  //     return <div>Error: {error}</div>;
+  //   }
 
-    if (!selectedMovie) {
-      return <div>No movie data available.</div>;
-    }
+  //   if (!selectedMovie) {
+  //     return <div>No movie data available.</div>;
+  //   }
 
     return (
   <Card className="bg-dark text-dark p-4 rounded">
@@ -97,10 +122,9 @@ const MovieDetail = () => {
   </Card>
   
   
-);
-};
-  return <DetailInfo />;
-};
+    );
+  };
+  // return <DetailInfo />;
 
 
 export default MovieDetail;
