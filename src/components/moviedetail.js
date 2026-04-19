@@ -73,19 +73,14 @@ const MovieDetail = () => {
       
     </ListGroup>
 
-    	<ListGroup>
-      <ListGroupItem>{selectedMovie.title}</ListGroupItem>
-
       <ListGroupItem>
-        {selectedMovie.actors?.map((actor, i) => (
+        {selectedMovie.movieReviews?.map((review, i) => (
           <p key={i}>
-            <b>{actor.actorName}</b> {actor.characterName}
+            <b>{review.username}</b> {review.review} <BsStarFill /> {review.rating}
           </p>
         ))}
       </ListGroupItem>
       
-    </ListGroup>
-
 	{/* ADD REVIEW FORM */}
       <Card.Body className="bg-light text-dark mt-3">
         <h5>Add Review</h5>
