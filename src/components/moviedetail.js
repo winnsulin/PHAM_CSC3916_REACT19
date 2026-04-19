@@ -21,7 +21,8 @@ const MovieDetail = () => {
     dispatch(fetchMovie(movieId));
   }, [dispatch, movieId]);
 
-    // SUBMIT REVIEW FUNCTION
+
+	{/* ADD REVIEW FUNCTION */}
   const submitReview = async () => {
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`, {
@@ -75,7 +76,6 @@ const MovieDetail = () => {
     <ListGroup>
       <ListGroupItem>{selectedMovie.title}</ListGroupItem>
 
-      // Add review
       <ListGroupItem>
         {selectedMovie.actors?.map((actor, i) => (
           <p key={i}>
@@ -138,7 +138,8 @@ const MovieDetail = () => {
 
         <button onClick={submitReview}>Submit Review</button>
       </Card.Body>
-    // Show review list
+	  
+	  {/*SHOW REVIEW LIST */}
     <Card.Body className="card-body bg-white">
       {selectedMovie.movieReviews?.map((review, i) => (
         <p key={i}>
@@ -151,7 +152,8 @@ const MovieDetail = () => {
   
 );
   };
-  // return <DetailInfo />;
+
+	return <DetailInfo />;
 };
 
 
