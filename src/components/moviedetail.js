@@ -29,7 +29,7 @@ const MovieDetail = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `JWT ${localStorage.getItem("token")}`
+          Authorization: localStorage.getItem("token")
         },
         body: JSON.stringify({
           movieId: selectedMovie._id,
