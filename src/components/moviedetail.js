@@ -21,6 +21,32 @@ const MovieDetail = () => {
     dispatch(fetchMovie(movieId));
   }, [dispatch, movieId]);
 
+    // SUBMIT REVIEW FUNCTION
+  const submitReview = async () => {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token")
+        },
+        body: JSON.stringify({
+          movieId: selectedMovie._id,
+          rating,
+          review
+        })
+      });
+
+      if (res.ok) {
+        dispatch(fetchMovie(movieId));
+        setReview("");
+        setRating(5);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const DetailInfo = () => {
     if (loading) {
       return <div>Loading....</div>;
