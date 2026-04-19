@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, ListGroup, ListGroupItem, Image } from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs';
 import { useParams } from 'react-router-dom'; // Import useParams
+import { useState } from 'react';
+
 
 const MovieDetail = () => {
   const dispatch = useDispatch();
@@ -45,6 +47,7 @@ const MovieDetail = () => {
     <ListGroup>
       <ListGroupItem>{selectedMovie.title}</ListGroupItem>
 
+      // Add review
       <ListGroupItem>
         {selectedMovie.actors?.map((actor, i) => (
           <p key={i}>
@@ -52,6 +55,29 @@ const MovieDetail = () => {
           </p>
         ))}
       </ListGroupItem>
+        <Card.Body className="bg-light text-dark mt-3">
+        <h5>Add Review</h5>
+
+        <input
+          type="number"
+          min="1"
+          max="5"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+        />
+
+        <br />
+
+        <textarea
+          value={review}
+          onChange={(e) => setReview(e.target.value)}
+          placeholder="Write a review..."
+        />
+
+        <br />
+
+        <button onClick={submitReview}>Submit Review</button>
+      </Card.Body>
 
       <ListGroupItem>
         <h4>
@@ -59,7 +85,8 @@ const MovieDetail = () => {
         </h4>
       </ListGroupItem>
     </ListGroup>
-
+    
+    // Show review list
     <Card.Body className="card-body bg-white">
       {selectedMovie.movieReviews?.map((review, i) => (
         <p key={i}>
@@ -68,6 +95,8 @@ const MovieDetail = () => {
       ))}
     </Card.Body>
   </Card>
+  
+  
 );
 };
   return <DetailInfo />;
