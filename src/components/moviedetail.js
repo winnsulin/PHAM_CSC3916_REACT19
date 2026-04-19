@@ -126,7 +126,7 @@ const MovieDetail = () => {
   };
 
 	/* return <DetailInfo />; */
-};
+
 
 
 export default MovieDetail;
