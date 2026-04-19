@@ -48,7 +48,7 @@ const MovieDetail = () => {
     }
   };
 
-  const DetailInfo = () => {
+  /* const DetailInfo = () => {
     if (loading) {
       return <div>Loading....</div>;
     }
@@ -59,7 +59,7 @@ const MovieDetail = () => {
 
     if (!selectedMovie) {
       return <div>No movie data available.</div>;
-    }
+    } */
 
     return (
   <Card className="bg-dark text-dark p-4 rounded">
@@ -125,7 +125,7 @@ const MovieDetail = () => {
 );
   };
 
-	return <DetailInfo />;
+	/* return <DetailInfo />; */
 };
 
 
