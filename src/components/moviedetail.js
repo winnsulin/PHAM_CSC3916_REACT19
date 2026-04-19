@@ -83,35 +83,7 @@ const MovieDetail = () => {
           </p>
         ))}
       </ListGroupItem>
-        <Card.Body className="bg-light text-dark mt-3">
-        <h5>Add Review</h5>
-
-        <input
-          type="number"
-          min="1"
-          max="5"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-        />
-
-        <br />
-
-        <textarea
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
-          placeholder="Write a review..."
-        />
-
-        <br />
-
-        <button onClick={submitReview}>Submit Review</button>
-      </Card.Body>
-
-      <ListGroupItem>
-        <h4>
-          <BsStarFill /> {selectedMovie.avgRating?.toFixed(1) || 0}
-        </h4>
-      </ListGroupItem>
+      
     </ListGroup>
     
 	{/* ADD REVIEW FORM */}
