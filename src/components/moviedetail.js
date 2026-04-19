@@ -100,9 +100,9 @@ const MovieDetail = () => {
 	  
 	  {/*SHOW REVIEW LIST */}
     <Card.Body className="card-body bg-white">
-      {selectedMovie.movieReviews?.map((movieReviews, i) => (
+      {selectedMovie.movieReviews?.map((review, i) => (
         <p key={i}>
-          <b>{movieReviews.username}</b> {movieReviews.review} <BsStarFill /> {movieReviews.rating}
+          <b>{review.username}</b> {review.movieReviews} <BsStarFill /> {review.rating}
         </p>
       ))}
     </Card.Body>
