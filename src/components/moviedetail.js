@@ -48,19 +48,6 @@ const MovieDetail = () => {
     }
   };
 
-  /* const DetailInfo = () => {
-    if (loading) {
-      return <div>Loading....</div>;
-    }
-
-    if (error) {
-      return <div>Error: {error}</div>;
-    }
-
-    if (!selectedMovie) {
-      return <div>No movie data available.</div>;
-    } */
-
     return (
   <Card className="bg-dark text-dark p-4 rounded">
     <Card.Header>Movie Detail</Card.Header>
@@ -113,9 +100,9 @@ const MovieDetail = () => {
 	  
 	  {/*SHOW REVIEW LIST */}
     <Card.Body className="card-body bg-white">
-      {selectedMovie.movieReviews?.map((review, i) => (
+      {selectedMovie.movieReviews?.map((movieReviews, i) => (
         <p key={i}>
-          <b>{review.username}</b> {review.review} <BsStarFill /> {review.rating}
+          <b>{movieReviews.username}</b> {movieReviews.review} <BsStarFill /> {movieReviews.rating}
         </p>
       ))}
     </Card.Body>
@@ -124,8 +111,6 @@ const MovieDetail = () => {
   
 );
   };
-
-	/* return <DetailInfo />; */
 
 
 
